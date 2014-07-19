@@ -1,5 +1,50 @@
 # Docker Workshop
 
+The Workshop is separated in three sections
+
+* CLI Basics
+* Dockerfile basics
+* Docker Patterns
+
+## CLI Basics
+
+### Version
+
+Check you have latest version of docker installed:
+
+```
+docker version
+```
+
+* If you don't have docker installed, check [here](https://docs.docker.com/installation/#installation)
+* If you're not on the latest version, it will prompt you to update
+
+### Commands
+
+Check the available docker commands
+
+```
+docker
+```
+
+* Whenever you don't remember a command, just type docker
+* For more info, type `docker help COMMAND` (e.g. `docker help run`)
+
+### Run a "Hello World" container
+
+```
+docker run ubuntu:14.04 echo "Hello World"
+```
+
+* If the Image is not cached, it pulls it automatically
+* It prints `Hello World` and exits
+
+### Run an interactive Container
+
+```
+docker run -it ubuntu:14.04 /bin/bash -l
+```
+
 ## LAUNCH WITH DOCKER
 
 ## Launch a clean Ubuntu
