@@ -128,7 +128,7 @@ docker ps -a
 
 ### Build a Git Client Container
 
-**Create a Git Container manually**
+Create a Git Container manually:
 
 ```
 docker run -it --name git ubuntu bash
@@ -147,7 +147,7 @@ docker rmi docker-git
 * **rm**: Remove one or more containers
 * **rmi**: Remove one or more images
 
-**Create a Git Container with Dockerfile**
+Create a Git Container with Dockerfile:
 
 ```
 cd docker-git
@@ -157,7 +157,22 @@ docker run -it docker-git git version
 
 * **build**: Build an image from a Dockerfile
 
-* Apache Server
+[Dockerfile](dockergit/Dockerfile):
+
+```
+FROM ubuntu:14.04
+MAINTAINER Dimitris Kapanidis <spiddy@harbur.io>
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy install git
+```
+
+* The **FROM** instruction sets the Base Image for subsequent instructions
+* The **MAINTAINER** instruction allows you to set the Author field of the generated images
+* The **RUN** instruction will execute any commands in a new layer on top of the current image and commit the results
+
+### Build an Apache Server Container
+
+cd docker-apache2
 
 ```
 FROM ubuntu:14.04
@@ -168,8 +183,8 @@ CMD apachectl start; tail -f /var/log/apache2/access.log
 ```
 
 ```
-docker build -t docker-apache .
-docker run -d -p 8700:80 docker-apache 
+docker build -t docker-apache2 .
+docker run -d -p 8700:80 docker-apache2
 google-chrome http://localhost:8700/
 ```
 
