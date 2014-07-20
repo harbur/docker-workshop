@@ -165,14 +165,11 @@ docker run -it docker-git git version
 [docker-git/Dockerfile](docker-git/Dockerfile)
 ```
 FROM ubuntu:14.04
-MAINTAINER Dimitris Kapanidis <spiddy@harbur.io>
-
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy install git
 ```
 
 * The **FROM** instruction sets the Base Image for subsequent instructions
-* The **MAINTAINER** instruction allows you to set the Author field of the generated images
 * The **RUN** instruction will execute any commands in a new layer on top of the current image and commit the results
 
 ### Build an Apache Server Container
@@ -189,11 +186,8 @@ google-chrome localhost:4003
 [docker-apache2/Dockerfile](docker-apache2/Dockerfile)
 ```
 FROM ubuntu:14.04
-MAINTAINER Dimitris Kapanidis <spiddy@harbur.io>
-
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy install apache2
-
 EXPOSE 80
 CMD apachectl start; tail -f /var/log/apache2/access.log
 ```
@@ -216,8 +210,6 @@ google-chrome $(docker port hello 80)
 [hello-world/Dockerfile](hello-world/Dockerfile)
 ```
 FROM nginx:1.7.1
-MAINTAINER Dimitris Kapanidis <spiddy@harbur.io>
-
 ADD site/ /usr/local/nginx/html/
 ```
 
