@@ -99,7 +99,7 @@ google-chrome localhost:4000
 ### RUN a Container with a Volume
 
 ```
-docker run -d -p 4001:80 -v $(pwd)/ex1-container-with-volume/:/usr/local/nginx/html:ro nginx
+docker run -d -p 4001:80 -v $(pwd)/hello-world/site/:/usr/local/nginx/html:ro nginx
 google-chrome localhost:4001
 ```
 
@@ -166,6 +166,7 @@ docker run -it docker-git git version
 ```
 FROM ubuntu:14.04
 MAINTAINER Dimitris Kapanidis <spiddy@harbur.io>
+
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy install git
 ```
@@ -188,14 +189,45 @@ google-chrome localhost:4003
 [docker-apache2/Dockerfile](docker-apache2/Dockerfile)
 ```
 FROM ubuntu:14.04
+MAINTAINER Dimitris Kapanidis <spiddy@harbur.io>
+
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy install apache2
+
 EXPOSE 80
 CMD apachectl start; tail -f /var/log/apache2/access.log
 ```
 
 * The **EXPOSE** instructions informs Docker that the container will listen on the specified network ports at runtime
 * The **CMD** instruction sets the command to be executed when running the image
+
+### Build a Static-Site Container
+
+```
+cd hello-world
+docker build -t hello-world .
+docker run -d --name hello -P hello-world
+google-chrome $(docker port hello 80)
+```
+
+* **-P**: Publish all exposed ports to the host interfaces
+* **port**: Lookup the public-facing port that is NAT-ed to PRIVATE_PORT
+
+[hello-world/Dockerfile](hello-world/Dockerfile)
+```
+FROM nginx:1.7.1
+MAINTAINER Dimitris Kapanidis <spiddy@harbur.io>
+
+ADD site/ /usr/local/nginx/html/
+```
+
+* The **ADD** instruction will copy new files from <src> and add them to the container's filesystem at path <dest>
+
+## Workshop 2 (10 mins)
+
+* Build a Container of your previous Static Site
+* Push it on the local Registry
+* Share your Container name on the Chat room [![Gitter chat](https://badges.gitter.im/spiddy/docker-workshop.png)](https://gitter.im/spiddy/docker-workshop)
 
 ## DEPLOY WITH DOCKER
 
