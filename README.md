@@ -128,7 +128,7 @@ docker ps -a
 
 ### Build a Git Client Container
 
-* Create a Git Container manually:
+**Create a Git Container manually**
 
 ```
 docker run -it --name git ubuntu bash
@@ -147,7 +147,7 @@ docker rmi docker-git
 * **rm**: Remove one or more containers
 * **rmi**: Remove one or more images
 
-* Create a Git Container with Dockerfile:
+**Create a Git Container with Dockerfile**
 
 ```
 cd docker-git
