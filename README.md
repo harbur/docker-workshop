@@ -101,7 +101,7 @@ docker ps -a
 
 * **-a**: Show all containers. Only running containers are shown by default.
 
-## Workshop 1
+## Workshop 1 (10 mins)
 
 * Build a static website
 * Run it on your machine
