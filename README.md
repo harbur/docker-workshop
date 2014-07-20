@@ -78,7 +78,7 @@ google-chrome http://localhost:40080
 ### RUN a Container with a Volume
 
 ```
-docker run -d -p 40081:80 -v /var/www/:/usr/local/nginx/html:ro nginx
+docker run -d -p 40081:80 -v $(pwd)/ex1-container-with-volume/:/usr/local/nginx/html:ro nginx
 google-chrome http://localhost:40081
 ```
 
