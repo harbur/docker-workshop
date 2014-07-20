@@ -23,6 +23,8 @@ docker pull crosbymichael/skydock
 docker pull crosbymichael/redis
 ```
 
+During workshop the following ports are used `4000-4010`. If they are not available on your machine, adjust the CLI commands accordingly.
+
 # CLI Basics
 
 ### Version
@@ -85,8 +87,8 @@ docker search -s 10 nginx
 ### RUN a Container and expose a Port
 
 ```
-docker run -d -p 40080:80 nginx
-google-chrome http://localhost:40080
+docker run -d -p 4000:80 nginx
+google-chrome localhost:4000
 ```
 
 * **-d**: Detached mode: Run container in the background, print new container id
@@ -96,8 +98,8 @@ google-chrome http://localhost:40080
 ### RUN a Container with a Volume
 
 ```
-docker run -d -p 40081:80 -v $(pwd)/ex1-container-with-volume/:/usr/local/nginx/html:ro nginx
-google-chrome http://localhost:40081
+docker run -d -p 4001:80 -v $(pwd)/ex1-container-with-volume/:/usr/local/nginx/html:ro nginx
+google-chrome localhost:4001
 ```
 
 * **-d**: Bind mount a volume (e.g., from the host: -v /host:/container, from docker: -v /container)
@@ -174,7 +176,16 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy install git
 
 ### Build an Apache Server Container
 
+Create an Apache Server Container with Dockerfile:
+
+```
 cd docker-apache2
+docker build -t docker-apache2 .
+docker run -d -p 4003:80 docker-apache2
+google-chrome localhost:4003
+```
+
+[Dockerfile](docker-apache2/Dockerfile):
 
 ```
 FROM ubuntu:14.04
@@ -182,12 +193,6 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy install apache2
 EXPOSE 80
 CMD apachectl start; tail -f /var/log/apache2/access.log
-```
-
-```
-docker build -t docker-apache2 .
-docker run -d -p 8700:80 docker-apache2
-google-chrome http://localhost:8700/
 ```
 
 ## DEPLOY WITH DOCKER
@@ -230,7 +235,7 @@ LRANGE attendees 0 -1
 
 ```
 docker run -i -t -p 8802:80 --name web -v /app tutum/apache-php
-google-chrome http://localhost:8802
+google-chrome localhost:8802
 docker run -i -t -P --volumes-from web ubuntu /bin/bash -l
 vi /app/index.php
 ```
