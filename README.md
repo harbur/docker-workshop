@@ -233,9 +233,9 @@ google-chrome $(docker port registry-hello 80)
 
 * **pull**: Pull an image or a repository from a Docker registry server
 
-## DEPLOY WITH DOCKER
+# Docker Patterns
 
-## Linking Containers
+## [Linking Containers Together](https://docs.docker.com/userguide/dockerlinks/)
 
 ```
 docker run --rm --name redis dockerfile/redis
