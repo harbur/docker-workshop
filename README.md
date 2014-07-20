@@ -126,21 +126,36 @@ docker ps -a
 
 # Dockerfile Basics
 
-### Simple Dockerfile
+### Build a Git Client Container
 
-* Git Client
-
-```
-FROM ubuntu:14.04
-RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy install git
-```
+* Create a Git Container manually:
 
 ```
+docker run -it --name git ubuntu bash
+  apt-get update
+  apt-get install git
+  git version
+  exit
+docker commit git docker-git
+docker rm git
+docker run -it docker-git git version
+docker rmi docker-git
+```
+
+* **--name**: Assign a name to the container
+* **commit**: Create a new image from a container's changes
+* **rm**: Remove one or more containers
+* **rmi**: Remove one or more images
+
+* Create a Git Container with Dockerfile:
+
+```
+cd docker-git
 docker build -t docker-git .
-docker run -it docker-git /bin/bash -l
-git --version
+docker run -it docker-git git version
 ```
+
+* **build**: Build an image from a Dockerfile
 
 * Apache Server
 
