@@ -47,8 +47,8 @@ docker run -it busybox sh
 cat /etc/os-release
 ```
 
-* -i: Keep stdin open even if not attached
-* -t: Allocate a pseudo-tty
+* **-i**: Keep stdin open even if not attached
+* **-t**: Allocate a pseudo-tty
 
 ### RUN a Container with pipeline
 
@@ -62,7 +62,7 @@ cat /etc/resolv.conf | docker run -i busybox wc -l
 docker search -s 10 nginx
 ```
 
-* **-s** Only displays with at least x stars
+* **-s**: Only displays with at least x stars
 
 ### RUN a Container and expose a Port
 
@@ -71,8 +71,8 @@ docker run -d -p 40080:80 nginx
 google-chrome http://localhost:40080
 ```
 
-* -d: Detached mode: Run container in the background, print new container id
-* -p: Publish a container's port to the host (format: *hostPort:containerPort*)
+* **-d**: Detached mode: Run container in the background, print new container id
+* **-p**: Publish a container's port to the host (format: *hostPort:containerPort*)
 * For more info about the container, see [nginx](https://registry.hub.docker.com/_/nginx/)
 
 ### RUN a Container with a Volume
@@ -95,7 +95,7 @@ docker ps
 docker ps -a
 ```
 
-* -a: Show all containers. Only running containers are shown by default.
+* **-a**: Show all containers. Only running containers are shown by default.
 
 ####
 
