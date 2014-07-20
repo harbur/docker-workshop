@@ -62,7 +62,7 @@ cat /etc/resolv.conf | docker run -i busybox wc -l
 docker search -s 10 nginx
 ```
 
-* -s: Only displays with at least x stars
+* **-s** Only displays with at least x stars
 
 ### RUN a Container and expose a Port
 
