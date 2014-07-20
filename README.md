@@ -202,29 +202,36 @@ ADD site/ /usr/local/nginx/html/
 
 ## Workshop 2 (10 mins)
 
-* Build a Static website of your previous site
-* Run a Static website Container
+* Build your website with Dockerfile
+* Run an instance
 * Share your (non-localhost) url on Chat room [![Gitter chat](https://badges.gitter.im/spiddy/docker-workshop.png)](https://gitter.im/spiddy/docker-workshop)
 
 ### PUSH Image to a Registry
 
-
 ```
-REGISTRY=http://localhost:5000/
+REGISTRY=localhost:5000
 docker tag hello-world $REGISTRY/spiddy/hello-world
-docker push registry:5000/hello-world
-docker pull registry:5000/hello-world
-docker run -d -P --name=registry-hello registry:5000/hello-world
-google-chrome $(docker port registry-hello 80)
+docker push $REGISTRY/spiddy/hello-world
 ```
+
+* **tag**: Tag an image into a repository
 * **push**: Push an image or a repository to a Docker registry server
-* **pull**: Pull an image or a repository from a Docker registry server
 
 ## Workshop 3 (10 mins)
 
-* Push your Static website to the local Registry (`username/websitename`)
-* Share your image-name on Chat room [![Gitter chat](https://badges.gitter.im/spiddy/docker-workshop.png)](https://gitter.im/spiddy/docker-workshop)
-* Pull an image of another user from Chat room and run it
+* Push your website to the local Registry (use your github username)
+* Push your website image
+* Share your image name on Chat room [![Gitter chat](https://badges.gitter.im/spiddy/docker-workshop.png)](https://gitter.im/spiddy/docker-workshop)
+
+### PULL Image from a Repository
+
+```
+docker pull $REGISTRY/spiddy/hello-world
+docker run -d -P --name=registry-hello $REGISTRY/spiddy/hello-world
+google-chrome $(docker port registry-hello 80)
+```
+
+* **pull**: Pull an image or a repository from a Docker registry server
 
 ## DEPLOY WITH DOCKER
 
