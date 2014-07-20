@@ -139,7 +139,7 @@ docker run -it --name git ubuntu bash
   exit
 docker commit git docker-git
 docker rm git
-docker run -it docker-git git version
+docker run --rm -it docker-git git version
 docker rmi docker-git
 ```
 
@@ -147,6 +147,7 @@ docker rmi docker-git
 * **commit**: Create a new image from a container's changes
 * **rm**: Remove one or more containers
 * **rmi**: Remove one or more images
+* **--rm**: Automatically remove the container when it exits
 
 Create a Git Container with Dockerfile:
 
