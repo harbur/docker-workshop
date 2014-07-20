@@ -1,4 +1,4 @@
-# Docker Workshop
+# Docker Workshop [![Gitter chat](https://badges.gitter.im/spiddy/docker-workshop.png)](https://gitter.im/spiddy/docker-workshop)
 
 The Workshop is separated in three sections
 
