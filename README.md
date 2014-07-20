@@ -157,7 +157,7 @@ docker run -it docker-git git version
 
 * **build**: Build an image from a Dockerfile
 
-[Dockerfile](dockergit/Dockerfile):
+[Dockerfile](docker-git/Dockerfile):
 
 ```
 FROM ubuntu:14.04
