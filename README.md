@@ -83,7 +83,7 @@ google-chrome http://localhost:40081
 ```
 
 * **-d**: Bind mount a volume (e.g., from the host: -v /host:/container, from docker: -v /container)
-* The volume is **linked** inside the container. Any changes are visible directly on the container.
+* The volume is **linked** inside the container. Any external changes are visible directly inside the container.
 * This example breaks the immutability of the container, good for debuging, not recommended for production (Volumes should be used for data, not code)
 
 ### IMAGES - Show Images
