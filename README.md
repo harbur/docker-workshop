@@ -15,6 +15,7 @@ Preparations:
 docker pull busybox:latest
 docker pull ubuntu:latest
 docker pull nginx:latest
+docker pull nginx:1.7.1
 docker pull dockerfile/redis
 docker pull relateiq/redis-cli
 docker pull svendowideit/ambassador
