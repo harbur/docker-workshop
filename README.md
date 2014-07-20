@@ -161,8 +161,7 @@ docker run -it docker-git git version
 
 * **build**: Build an image from a Dockerfile
 
-[Dockerfile](docker-git/Dockerfile):
-
+[docker-git/Dockerfile](docker-git/Dockerfile)
 ```
 FROM ubuntu:14.04
 MAINTAINER Dimitris Kapanidis <spiddy@harbur.io>
@@ -185,8 +184,7 @@ docker run -d -p 4003:80 docker-apache2
 google-chrome localhost:4003
 ```
 
-[Dockerfile](docker-apache2/Dockerfile):
-
+[docker-apache2/Dockerfile](docker-apache2/Dockerfile)
 ```
 FROM ubuntu:14.04
 RUN apt-get update
@@ -194,6 +192,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy install apache2
 EXPOSE 80
 CMD apachectl start; tail -f /var/log/apache2/access.log
 ```
+
+* The **EXPOSE** instructions informs Docker that the container will listen on the specified network ports at runtime
+* The **CMD** instruction sets the command to be executed when running the image
 
 ## DEPLOY WITH DOCKER
 
