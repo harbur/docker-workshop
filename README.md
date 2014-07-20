@@ -105,7 +105,7 @@ docker ps -a
 
 * Build a static website
 * Run it on your machine
-* Share your url on Chat room [![Gitter chat](https://badges.gitter.im/spiddy/docker-workshop.png)](https://gitter.im/spiddy/docker-workshop)
+* Share your (non-localhost) url on Chat room [![Gitter chat](https://badges.gitter.im/spiddy/docker-workshop.png)](https://gitter.im/spiddy/docker-workshop)
 
 # Dockerfile Basics
 
