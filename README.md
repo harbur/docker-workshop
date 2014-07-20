@@ -61,7 +61,8 @@ docker run busybox echo "Hello World"
 
 ```
 docker run -it busybox sh
-cat /etc/os-release
+  cat /etc/os-release
+  exit
 ```
 
 * **-i**: Keep stdin open even if not attached
