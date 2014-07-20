@@ -6,7 +6,7 @@ The Workshop is separated in three sections
 * Dockerfile basics
 * Docker Patterns
 
-## CLI Basics
+# CLI Basics
 
 ### Version
 
@@ -101,18 +101,13 @@ docker ps -a
 
 * **-a**: Show all containers. Only running containers are shown by default.
 
-####
+## Workshop 1
 
-## Change Data
+* Build a static website
+* Run it on your machine
+* Share your url on Chat room [![Gitter chat](https://badges.gitter.im/spiddy/docker-workshop.png)](https://gitter.im/spiddy/docker-workshop)
 
-```
-docker run -i -t -p 8801:80 tutum/apache-php /bin/bash -l
-apachectl start
-vi /app/index.php
-google-chrome http://localhost:8801
-```
-
-## BUILD WITH DOCKER
+# Dockerfile Basics
 
 ### Simple Dockerfile
 
