@@ -6,6 +6,23 @@ The Workshop is separated in three sections
 * Dockerfile basics
 * Docker Patterns
 
+Preparations:
+
+* Clone this repo: `git clone https://github.com/spiddy/docker-workshop` (Some code examples require files located here)
+* Warm-up the images:
+
+```
+docker pull busybox:latest
+docker pull ubuntu:latest
+docker pull nginx:latest
+docker pull dockerfile/redis
+docker pull relateiq/redis-cli
+docker pull svendowideit/ambassador
+docker pull crosbymichael/skydns
+docker pull crosbymichael/skydock
+docker pull crosbymichael/redis
+```
+
 # CLI Basics
 
 ### Version
