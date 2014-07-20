@@ -107,21 +107,6 @@ google-chrome localhost:4001
 * The volume is **linked** inside the container. Any external changes are visible directly inside the container.
 * This example breaks the immutability of the container, good for debuging, not recommended for production (Volumes should be used for data, not code)
 
-### IMAGES - Show Images
-
-```
-docker images
-```
-
-### PS - Show Containers
-
-```
-docker ps
-docker ps -a
-```
-
-* **-a**: Show all containers. Only running containers are shown by default.
-
 ## Workshop 1 (10 mins)
 
 * Build a static website
@@ -130,14 +115,14 @@ docker ps -a
 
 # Dockerfile Basics
 
-### Build a Git Client Container
+### BUILD a Git Client Container
 
 Create a Git Container manually:
 
 ```
 docker run -it --name git ubuntu bash
   apt-get update
-  apt-get install git
+  apt-get -y install git
   git version
   exit
 docker commit git docker-git
@@ -172,7 +157,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy install git
 * The **FROM** instruction sets the Base Image for subsequent instructions
 * The **RUN** instruction will execute any commands in a new layer on top of the current image and commit the results
 
-### Build an Apache Server Container
+### BUILD an Apache Server Container
 
 Create an Apache Server Container with Dockerfile:
 
@@ -195,7 +180,7 @@ CMD apachectl start; tail -f /var/log/apache2/access.log
 * The **EXPOSE** instructions informs Docker that the container will listen on the specified network ports at runtime
 * The **CMD** instruction sets the command to be executed when running the image
 
-### Build a Static-Site Container
+### BUILD a Static website Image
 
 ```
 cd hello-world
@@ -217,9 +202,29 @@ ADD site/ /usr/local/nginx/html/
 
 ## Workshop 2 (10 mins)
 
-* Build a Container of your previous Static Site
-* Push it on the local Registry
-* Share your Container name on the Chat room [![Gitter chat](https://badges.gitter.im/spiddy/docker-workshop.png)](https://gitter.im/spiddy/docker-workshop)
+* Build a Static website of your previous site
+* Run a Static website Container
+* Share your (non-localhost) url on Chat room [![Gitter chat](https://badges.gitter.im/spiddy/docker-workshop.png)](https://gitter.im/spiddy/docker-workshop)
+
+### PUSH Image to a Registry
+
+
+```
+REGISTRY=http://localhost:5000/
+docker tag hello-world $REGISTRY/spiddy/hello-world
+docker push registry:5000/hello-world
+docker pull registry:5000/hello-world
+docker run -d -P --name=registry-hello registry:5000/hello-world
+google-chrome $(docker port registry-hello 80)
+```
+* **push**: Push an image or a repository to a Docker registry server
+* **pull**: Pull an image or a repository from a Docker registry server
+
+## Workshop 3 (10 mins)
+
+* Push your Static website to the local Registry (`username/websitename`)
+* Share your image-name on Chat room [![Gitter chat](https://badges.gitter.im/spiddy/docker-workshop.png)](https://gitter.im/spiddy/docker-workshop)
+* Pull an image of another user from Chat room and run it
 
 ## DEPLOY WITH DOCKER
 
