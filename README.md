@@ -71,7 +71,8 @@ docker run -d -p 40080:80 nginx
 google-chrome http://localhost:40080
 ```
 
-* -p: Publish a container's port to the host
+* -d: Detached mode: Run container in the background, print new container id
+* -p: Publish a container's port to the host (format: ip:hostPort:containerPort | ip::containerPort | *hostPort:containerPort*)
 * For more info about the container, see [nginx](https://registry.hub.docker.com/_/nginx/)
 
 ### RUN a Container with a Volume
