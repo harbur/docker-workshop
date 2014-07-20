@@ -82,6 +82,8 @@ docker run -d -p 40081:80 -v $(pwd)/ex1-container-with-volume/:/usr/local/nginx/
 google-chrome http://localhost:40081
 ```
 
+* **-d**: Bind mount a volume (e.g., from the host: -v /host:/container, from docker: -v /container)
+
 ### IMAGES - Show Images
 
 ```
