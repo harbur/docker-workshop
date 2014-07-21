@@ -8,6 +8,7 @@ The Workshop is separated in three sections
 
 Preparations:
 
+* Install Docker
 * Clone this repo: `git clone https://github.com/spiddy/docker-workshop` (Some code examples require files located here)
 * Warm-up the images:
 
@@ -24,7 +25,9 @@ docker pull crosbymichael/skydock
 docker pull crosbymichael/redis
 ```
 
-During workshop the following ports are used `4000-4010`. If they are not available on your machine, adjust the CLI commands accordingly.
+Assumptions:
+
+* During workshop the following ports are used `4000-4010`. If they are not available on your machine, adjust the CLI commands accordingly.
 
 # CLI Basics
 
@@ -65,7 +68,6 @@ docker run busybox echo "Hello World"
 ```
 docker run -it busybox sh
   cat /etc/os-release
-  exit
 ```
 
 * **-i**: Keep stdin open even if not attached
@@ -267,10 +269,10 @@ docker run -i -t --rm --link redis_ambassador:redis relateiq/redis-cli
 ## [Data Volume Pattern](http://docs.docker.com/userguide/dockervolumes/)
 
 ```
-docker run -i -t -p 8802:80 --name web -v /app tutum/apache-php
-google-chrome localhost:8802
-docker run -i -t -P --volumes-from web ubuntu /bin/bash -l
-vi /app/index.php
+docker run -d -p 4004:80 --name web -v /usr/local/nginx/html nginx
+google-chrome localhost:4004
+docker run --rm -it --volumes-from web ubuntu bash
+  vi /usr/local/nginx/html/index.php
 ```
 
 ## [Service Discovery Pattern](https://github.com/crosbymichael/skydock)
