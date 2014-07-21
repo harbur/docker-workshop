@@ -13,8 +13,8 @@ Preparations:
 * Warm-up the images:
 
 ```
-docker pull ubuntu:latest
-docker pull nginx:latest
+docker pull ubuntu
+docker pull nginx
 ```
 
 Assumptions:
