@@ -13,8 +13,10 @@ Preparations:
 * Warm-up the images:
 
 ```
-docker pull ubuntu
-docker pull nginx
+docker pull ubuntu:latest
+docker pull ubuntu:14.04
+docker pull nginx:latest
+docker pull nginx:1.7.1
 ```
 
 Assumptions:
