@@ -189,7 +189,7 @@ google-chrome $(docker port hello 80)
 [hello-world/Dockerfile](hello-world/Dockerfile)
 ```
 FROM nginx:1.7.1
-ADD site/ /usr/local/nginx/html/
+ADD site /usr/local/nginx/html
 ```
 
 * The **ADD** instruction will copy new files from <src> and add them to the container's filesystem at path <dest>
