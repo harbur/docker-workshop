@@ -1,4 +1,4 @@
-# Docker Workshop [![Gitter chat](https://badges.gitter.im/spiddy/docker-workshop.png)](https://gitter.im/spiddy/docker-workshop)
+# Docker Workshop [![Gitter chat](https://badges.gitter.im/harbur/docker-workshop.png)](https://gitter.im/harbur/docker-workshop)
 
 The Workshop is separated in three sections
 
@@ -9,7 +9,7 @@ The Workshop is separated in three sections
 Preparations:
 
 * Install Docker
-* Clone this repo: `git clone https://github.com/spiddy/docker-workshop` (Some code examples require files located here)
+* Clone this repo: `git clone https://github.com/harbur/docker-workshop` (Some code examples require files located here)
 * Warm-up the images:
 
 ```
@@ -105,7 +105,7 @@ google-chrome localhost:4001
 
 * Build a static website
 * Run it on your machine
-* Share your (non-localhost) url on Chat room [![Gitter chat](https://badges.gitter.im/spiddy/docker-workshop.png)](https://gitter.im/spiddy/docker-workshop)
+* Share your (non-localhost) url on Chat room [![Gitter chat](https://badges.gitter.im/harbur/docker-workshop.png)](https://gitter.im/harbur/docker-workshop)
 
 # Dockerfile Basics
 
@@ -198,7 +198,7 @@ ADD site/ /usr/local/nginx/html/
 
 * Build your website with Dockerfile
 * Run an instance
-* Share your (non-localhost) url on Chat room [![Gitter chat](https://badges.gitter.im/spiddy/docker-workshop.png)](https://gitter.im/spiddy/docker-workshop)
+* Share your (non-localhost) url on Chat room [![Gitter chat](https://badges.gitter.im/harbur/docker-workshop.png)](https://gitter.im/harbur/docker-workshop)
 
 ### PUSH Image to a Registry
 
@@ -215,7 +215,7 @@ docker push $REGISTRY/spiddy/hello-world
 
 * Push your website to the local Registry (use your github username)
 * Push your website image
-* Share your image name on Chat room [![Gitter chat](https://badges.gitter.im/spiddy/docker-workshop.png)](https://gitter.im/spiddy/docker-workshop)
+* Share your image name on Chat room [![Gitter chat](https://badges.gitter.im/harbur/docker-workshop.png)](https://gitter.im/harbur/docker-workshop)
 
 ### PULL Image from a Repository
 
