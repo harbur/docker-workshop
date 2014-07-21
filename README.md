@@ -241,8 +241,8 @@ google-chrome $(docker port registry-hello 80)
 docker run --rm --name redis dockerfile/redis
 docker run -it --rm --link redis:server dockerfile/redis bash -c 'redis-cli -h $SERVER_PORT_6379_TCP_ADDR'
 docker run -it --rm --link redis:redis relateiq/redis-cli
-set hello world
-get hello
+  set hello world
+  get hello
 ```
 
 ## [Embassador Pattern](http://docs.docker.com/articles/ambassador_pattern_linking/)
@@ -260,13 +260,8 @@ host B (Client):
 ```
 docker run -d --name redis_ambassador --expose 6379 -e REDIS_PORT_6379_TCP=tcp://188.226.255.31:6379 svendowideit/ambassador
 docker run -i -t --rm --link redis_ambassador:redis relateiq/redis-cli
-```
-
-* Let's connect: Launch Host B commands and execute the following:
-
-```
-RPUSH attendees "PUT YOUR NAME HERE"
-LRANGE attendees 0 -1
+  set hello there
+  get hello
 ```
 
 ## [Data Volume Pattern](http://docs.docker.com/userguide/dockervolumes/)
