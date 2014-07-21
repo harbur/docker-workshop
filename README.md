@@ -291,14 +291,14 @@ docker run -d --name redis1 crosbymichael/redis
 docker run -d --name redis2 crosbymichael/redis
 docker run -d --name redis3 crosbymichael/redis
 docker run -t -i crosbymichael/redis-cli -h redis.dev.docker
-set hello world
-get hello
+  set hello world
+  get hello
 ```
 
 * Service discovery with DNS:
 
 ```
-dig @172.17.42.1 +short redis1.dev.docker
+dig @172.17.42.1 +short redis1.redis.dev.docker
 dig @172.17.42.1 +short redis.dev.docker
 ```
 
