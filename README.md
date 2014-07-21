@@ -13,16 +13,8 @@ Preparations:
 * Warm-up the images:
 
 ```
-docker pull busybox:latest
 docker pull ubuntu:latest
 docker pull nginx:latest
-docker pull nginx:1.7.1
-docker pull dockerfile/redis
-docker pull relateiq/redis-cli
-docker pull svendowideit/ambassador
-docker pull crosbymichael/skydns
-docker pull crosbymichael/skydock
-docker pull crosbymichael/redis
 ```
 
 Assumptions:
@@ -57,7 +49,7 @@ docker
 ### RUN a "Hello World" container
 
 ```
-docker run busybox echo "Hello World"
+docker run ubuntu echo "Hello World"
 ```
 
 * If the Image is not cached, it pulls it automatically
@@ -66,7 +58,7 @@ docker run busybox echo "Hello World"
 ### RUN an interactive Container
 
 ```
-docker run -it busybox sh
+docker run -it ubuntu sh
   cat /etc/os-release
 ```
 
@@ -76,7 +68,7 @@ docker run -it busybox sh
 ### RUN a Container with pipeline
 
 ```
-cat /etc/resolv.conf | docker run -i busybox wc -l
+cat /etc/resolv.conf | docker run -i ubuntu wc -l
 ```
 
 ### SEARCH a Container
