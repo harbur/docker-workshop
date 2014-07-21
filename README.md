@@ -2,9 +2,9 @@
 
 The Workshop is separated in three sections
 
-* CLI Basics
-* Dockerfile basics
-* Docker Patterns
+* [CLI Basics](#cli-basics)
+* [Dockerfile basics](#dockerfile-basics)
+* [Docker Patterns](#docker-patterns)
 
 Preparations:
 
