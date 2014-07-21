@@ -58,7 +58,7 @@ docker run ubuntu echo "Hello World"
 ### RUN an interactive Container
 
 ```
-docker run -it ubuntu sh
+docker run -it ubuntu bash
   cat /etc/os-release
 ```
 
