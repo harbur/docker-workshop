@@ -245,7 +245,7 @@ docker run -it --rm --link redis:redis relateiq/redis-cli
   get hello
 ```
 
-## [Embassador Pattern](http://docs.docker.com/articles/ambassador_pattern_linking/)
+## [Ambassador Pattern](http://docs.docker.com/articles/ambassador_pattern_linking/)
 
 host A (Server):
 
