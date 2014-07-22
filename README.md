@@ -1,4 +1,4 @@
-# Docker Workshop [![Gitter chat](https://badges.gitter.im/harbur/docker-workshop.png)](https://gitter.im/harbur/docker-workshop)
+# [![harbur.io](https://en.gravatar.com/userimage/10968596/06879c44248462a1bac025dd999fe704.png?size=64)](http://harbur.io) Docker Workshop [![Gitter chat](https://badges.gitter.im/harbur/docker-workshop.png)](https://gitter.im/harbur/docker-workshop)
 
 The Workshop is separated in three sections
 
@@ -303,16 +303,20 @@ dig @172.17.42.1 +short redis.dev.docker
 ```
 
 
-## Helper Methods
+# Helper Methods
 
-### Cleanup Stopped Containers
+Cleanup Stopped Containers:
 
 ```
 docker rm $(docker ps -q -a)
 ```
 
-### Cleanup Untagged Images
+Cleanup Untagged Images:
 
 ```
 docker rmi $(docker images | grep "^<none>" | awk '{print $3}')
 ```
+
+# Credits
+
+This workshop was prepared by [harbur.io](http://harbur.io), under MIT License. Feel free to fork and improve.
