@@ -145,11 +145,13 @@ docker run -it docker-git git version
 ```
 FROM ubuntu:14.04
 RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy install git
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get -qqy install git
 ```
 
 * The **FROM** instruction sets the Base Image for subsequent instructions
 * The **RUN** instruction will execute any commands in a new layer on top of the current image and commit the results
+* The **ENV** instruction sets the environment variable <key> to the value <value>
 
 ### BUILD an Apache Server Container
 
