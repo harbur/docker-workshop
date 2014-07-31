@@ -145,7 +145,7 @@ docker run -it docker-git git version
 ```
 FROM ubuntu:14.04
 RUN apt-get update
-ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -qqy install git
 ```
 
