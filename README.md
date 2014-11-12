@@ -93,7 +93,7 @@ google-chrome localhost:4000
 ### RUN a Container with a Volume
 
 ```
-docker run -d -p 4001:80 -v $(pwd)/hello-world/site/:/usr/local/nginx/html:ro nginx
+docker run -d -p 4001:80 -v $(pwd)/hello-world/site/:/usr/share/nginx/html:ro nginx
 google-chrome localhost:4001
 ```
 
