@@ -97,7 +97,7 @@ docker run -d -p 4001:80 -v $(pwd)/hello-world/site/:/usr/share/nginx/html:ro ng
 google-chrome localhost:4001
 ```
 
-* **-d**: Bind mount a volume (e.g., from the host: -v /host:/container, from docker: -v /container)
+* **-v**: Bind mount a volume (e.g., from the host: -v /host:/container, from docker: -v /container)
 * The volume is **linked** inside the container. Any external changes are visible directly inside the container.
 * This example breaks the immutability of the container, good for debuging, not recommended for production (Volumes should be used for data, not code)
 
