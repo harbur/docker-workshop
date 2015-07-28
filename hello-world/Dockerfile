@@ -1,2 +1,2 @@
-FROM nginx:1.7.1
-ADD site /usr/local/nginx/html
+FROM nginx:1.9.3
+ADD site /usr/share/nginx/html
