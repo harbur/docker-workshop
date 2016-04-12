@@ -1,5 +1,5 @@
-FROM ubuntu:14.04
-RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy install apache2
+FROM alpine:3.3
+RUN apk --update add apache2 && rm -rf /var/cache/apk/*
+RUN mkdir -p /run/apache2
 EXPOSE 80
-CMD apachectl start; tail -f /var/log/apache2/access.log
+CMD httpd -D FOREGROUND

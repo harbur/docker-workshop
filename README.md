@@ -21,6 +21,10 @@ Assumptions:
 
 * During workshop the following ports are used `4000-4010`. If they are not available on your machine, adjust the CLI commands accordingly.
 
+Docker Cheat Sheet:
+
+We've wrote a page with some useful docker commands: [Harbur's docker-cheat-sheet](https://github.com/harbur/docker-cheat-sheet)
+
 # CLI Basics
 
 ### Version
@@ -81,9 +85,16 @@ docker search -s 10 nginx
 
 ### RUN a Container and expose a Port
 
+On Linux:
 ```
 docker run -d -p 4000:80 nginx
 google-chrome localhost:4000
+```
+
+On Mac:
+```
+docker run -d -p 4000:80 nginx
+open http://$(docker-machine ip default):4000
 ```
 
 * **-d**: Detached mode: Run container in the background, print new container id
@@ -92,9 +103,16 @@ google-chrome localhost:4000
 
 ### RUN a Container with a Volume
 
+On Linux:
 ```
 docker run -d -p 4001:80 -v $(pwd)/hello-world/site/:/usr/share/nginx/html:ro nginx
 google-chrome localhost:4001
+```
+
+On Mac:
+```
+docker run -d -p 4001:80 -v $(pwd)/hello-world/site/:/usr/share/nginx/html:ro nginx
+open http://$(docker-machine ip default):4001
 ```
 
 * **-v**: Bind mount a volume (e.g., from the host: -v /host:/container, from docker: -v /container)
@@ -114,9 +132,9 @@ google-chrome localhost:4001
 Create a Git Container manually:
 
 ```
-docker run -it --name git ubuntu bash
-  apt-get update
-  apt-get -y install git
+docker run -it --name git alpine sh
+  apk update
+  apk add git
   git version
   exit
 docker commit git docker-git
@@ -143,15 +161,13 @@ docker run -it docker-git git version
 
 [docker-git/Dockerfile](docker-git/Dockerfile)
 ```
-FROM ubuntu:14.04
-RUN apt-get update
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get -qqy install git
+FROM alpine:3.3
+RUN apk update
+RUN apk add git
 ```
 
 * The **FROM** instruction sets the Base Image for subsequent instructions
 * The **RUN** instruction will execute any commands in a new layer on top of the current image and commit the results
-* The **ENV** instruction sets the environment variable <key> to the value <value>
 
 ### BUILD an Apache Server Container
 
@@ -161,16 +177,25 @@ Create an Apache Server Container with Dockerfile:
 cd docker-apache2
 docker build -t docker-apache2 .
 docker run -d -p 4003:80 docker-apache2
+```
+
+On Linux:
+```
 google-chrome localhost:4003
+```
+
+On Mac:
+```
+open http://$(docker-machine ip default):4003
 ```
 
 [docker-apache2/Dockerfile](docker-apache2/Dockerfile)
 ```
-FROM ubuntu:14.04
-RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy install apache2
+FROM alpine:3.3
+RUN apk --update add apache2 && rm -rf /var/cache/apk/*
+RUN mkdir -p /run/apache2
 EXPOSE 80
-CMD apachectl start; tail -f /var/log/apache2/access.log
+CMD httpd -D FOREGROUND
 ```
 
 * The **EXPOSE** instructions informs Docker that the container will listen on the specified network ports at runtime
@@ -182,7 +207,16 @@ CMD apachectl start; tail -f /var/log/apache2/access.log
 cd hello-world
 docker build -t hello-world .
 docker run -d --name hello -P hello-world
+```
+
+On Linux:
+```
 google-chrome $(docker port hello 80)
+```
+
+On Mac:
+```
+open http://$(docker-machine ip default):${$(docker port hello 80)##*:}
 ```
 
 * **-P**: Publish all exposed ports to the host interfaces
@@ -190,7 +224,7 @@ google-chrome $(docker port hello 80)
 
 [hello-world/Dockerfile](hello-world/Dockerfile)
 ```
-FROM nginx:1.9.3
+FROM nginx:1.8-alpine
 ADD site /usr/share/nginx/html
 ```
 
@@ -206,8 +240,8 @@ ADD site /usr/share/nginx/html
 
 ```
 REGISTRY=localhost:5000
-docker tag hello-world $REGISTRY/spiddy/hello-world
-docker push $REGISTRY/spiddy/hello-world
+docker tag hello-world $REGISTRY/$(whoami)/hello-world
+docker push $REGISTRY/$(whoami)/hello-world
 ```
 
 * **tag**: Tag an image into a repository
@@ -222,102 +256,21 @@ docker push $REGISTRY/spiddy/hello-world
 ### PULL Image from a Repository
 
 ```
-docker pull $REGISTRY/spiddy/hello-world
-docker run -d -P --name=registry-hello $REGISTRY/spiddy/hello-world
+docker pull $REGISTRY/$(whoami)/hello-world
+docker run -d -P --name=registry-hello $REGISTRY/$(whoami)/hello-world
+```
+
+On Linux:
+```
 google-chrome $(docker port registry-hello 80)
 ```
 
+On Mac:
+```
+open http://$(docker-machine ip default):${$(docker port registry-hello 80)##*:}
+```
+
 * **pull**: Pull an image or a repository from a Docker registry server
-
-# Docker Patterns
-
-## [Linking Containers Together](https://docs.docker.com/userguide/dockerlinks/)
-
-```
-docker run --rm --name redis dockerfile/redis
-docker run -it --rm --link redis:server dockerfile/redis bash -c 'redis-cli -h $SERVER_PORT_6379_TCP_ADDR'
-docker run -it --rm --link redis:redis relateiq/redis-cli
-  set hello world
-  get hello
-```
-
-## [Ambassador Pattern](http://docs.docker.com/articles/ambassador_pattern_linking/)
-
-host A (Server):
-
-```
-docker run -d --name redis dockerfile/redis
-docker run -d --link redis:redis --name redis_ambassador -p 6379:6379 svendowideit/ambassador
-
-```
-
-host B (Client):
-
-```
-docker run -d --name redis_ambassador --expose 6379 -e REDIS_PORT_6379_TCP=tcp://188.226.255.31:6379 svendowideit/ambassador
-docker run -i -t --rm --link redis_ambassador:redis relateiq/redis-cli
-  set hello there
-  get hello
-```
-
-## [Data Volume Pattern](http://docs.docker.com/userguide/dockervolumes/)
-
-```
-docker run -d -p 4004:80 --name web -v /usr/local/nginx/html nginx
-google-chrome localhost:4004
-docker run --rm -it --volumes-from web ubuntu bash
-  vi /usr/local/nginx/html/index.php
-```
-
-## [Service Discovery Pattern](https://github.com/crosbymichael/skydock)
-
-```
-sudo vi /etc/default/docker
-sudo service docker restart
-docker run -d -p 172.17.42.1:53:53/udp --name skydns crosbymichael/skydns -nameserver 8.8.8.8:53 -domain docker
-docker run -d -v /var/run/docker.sock:/docker.sock --name skydock crosbymichael/skydock -ttl 30 -environment dev -s /docker.sock -domain docker -name skydns
-```
-
-* Redis Service
-
-```
-docker run -d --name redis1 crosbymichael/redis
-docker run -d --name redis2 crosbymichael/redis
-docker run -d --name redis3 crosbymichael/redis
-docker run -t -i crosbymichael/redis-cli -h redis.dev.docker
-  set hello world
-  get hello
-```
-
-* Service discovery with DNS:
-
-```
-dig @172.17.42.1 +short redis1.redis.dev.docker
-dig @172.17.42.1 +short redis.dev.docker
-```
-
-* Load Balancing with DNS
-
-```
-docker rm -f redis1
-get hello
-dig @172.17.42.1 +short redis.dev.docker
-```
-
-
-# Helper Methods
-
-Cleanup Stopped Containers:
-
-```
-docker rm $(docker ps -q -a)
-```
-
-Cleanup Untagged Images:
-
-```
-docker rmi $(docker images | grep "^<none>" | awk '{print $3}')
-```
 
 # Credits
 
