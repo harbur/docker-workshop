@@ -19,7 +19,7 @@ docker pull nginx
 
 Assumptions:
 
-* During workshop the following ports are used `4000-4010`. If they are not available on your machine, adjust the CLI commands accordingly.
+* During workshop the following ports are used: `80` and the range `4000-4010`. If they are not available on your machine, adjust the CLI commands accordingly.
 
 Docker Cheat Sheet:
 

@@ -14,17 +14,20 @@ The toolbox installs a handful of tools on your local Windows or Mac OS X comput
 
 ## Create a VM running Docker
 
-Open a terminal on your computer. Use Docker Machine to list any VMs in VirtualBox.
-
-```
-docker-machine ls
-```
+Open a terminal on your computer. 
 
 Create and run a VM named `default`:
 
 ```
 docker-machine create -d virtualbox default
 ```
+
+You can list the existing docker-machines:
+
+```
+docker-machine ls
+```
+
 
 Start the VM named `default`:
 
@@ -51,7 +54,7 @@ docker run hello-world
 
 ## Clean up
 
-After we tested our `default` `docker-machine we want to remove it from our computer.
+After we tested our `default` `docker-machine` we want to remove it from our computer.
 
 Stop the VM named `default`:
 
