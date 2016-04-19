@@ -26,20 +26,43 @@ Create and run a VM named `default`:
 docker-machine create -d virtualbox default
 ```
 
-Start a VM named `default`:
+Start the VM named `default`:
 
 ```
 docker-machine start default
 ```
 
-Stop a VM named `default`:
+## Run a docker container in a docker-machine
+
+Now, let's use the docker-machine we've just created. We want to run the `hello-world`.
+
+If you use Mac, you need to run:
+```
+eval $(docker machine env default)
+```
+
+This command set the `DOCKER_HOST` variable to the IP of your `default` `docker-machine`.
+
+Then we can run the `hello-world` container:
+```
+docker run hello-world
+```
+
+
+## Clean up
+
+After we tested our `default` `docker-machine we want to remove it from our computer.
+
+Stop the VM named `default`:
 
 ```
 docker-machine stop default
 ```
 
-And if you need to remove the VM, you can destroy a VM named `default`:
+You can destroy the VM named `default`:
 
 ```
 docker-machine rm default
 ```
+
+
