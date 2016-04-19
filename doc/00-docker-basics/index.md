@@ -33,7 +33,7 @@ docker
 ### RUN a "Hello World" container
 
 ```
-docker run ubuntu echo "Hello World"
+docker run alpine echo "Hello World"
 ```
 
 * If the Image is not cached, it pulls it automatically
@@ -42,7 +42,7 @@ docker run ubuntu echo "Hello World"
 ### RUN an interactive Container
 
 ```
-docker run -it ubuntu bash
+docker run -it alpine sh
   cat /etc/os-release
 ```
 
@@ -52,7 +52,7 @@ docker run -it ubuntu bash
 ### RUN a Container with pipeline
 
 ```
-cat /etc/resolv.conf | docker run -i ubuntu wc -l
+cat /etc/resolv.conf | docker run -i alpine wc -l
 ```
 
 ### SEARCH a Container
@@ -113,8 +113,7 @@ Create a Git Container manually:
 
 ```
 docker run -it --name git alpine sh
-  apk update
-  apk add git
+  apk --update add git
   git version
   exit
 docker commit git docker-git
