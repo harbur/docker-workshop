@@ -6,7 +6,7 @@ The Workshop is separated in three sections
 * [Docker Machine](doc/01-docker-machine)
 * [Docker Compose](doc/02-docker-compose)
 
-Preparations:
+### Preparations:
 
 * Install Docker
 * Clone this repo: `git clone https://github.com/harbur/docker-workshop` (Some code examples require files located here)
@@ -17,11 +17,11 @@ docker pull alpine
 docker pull nginx
 ```
 
-Assumptions:
+### Assumptions:
 
 * During workshop the following ports are used: `80` and the range `4000-4010`. If they are not available on your machine, adjust the CLI commands accordingly.
 
-Docker Cheat Sheet:
+### Docker Cheat Sheet:
 
-We've wrote a page with some useful docker commands: [Harbur's docker-cheat-sheet](https://github.com/harbur/docker-cheat-sheet)
+We've wrote a page with some useful docker commands: [Harbur's docker-cheat-sheet](https://github.com/harbur/docker-cheat-sheet).
 
