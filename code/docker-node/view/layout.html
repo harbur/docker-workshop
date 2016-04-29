@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Guestbook</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <style type="text/css">
+            body {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+            .header {
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+            .header {
+                padding-bottom: 20px;
+                border-bottom: 1px solid #e5e5e5;
+            }
+            .header h3 {
+                margin-top: 0;
+                margin-bottom: 0;
+                line-height: 40px;
+            }
+
+            .fadeout {
+                background-color: transparent;
+                transition: background-color 2s linear;
+            }
+
+            @media (min-width: 768px) {
+                .container {
+                    max-width: 730px;
+                }
+                .header {
+                    padding-right: 0;
+                    padding-left: 0;
+                }
+                .header {
+                    margin-bottom: 30px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header clearfix">
+                <h3 class="text-muted">Guestbook</h3>
+            </div>
+
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

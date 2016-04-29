@@ -1,0 +1,10 @@
+version: '2'
+services:
+  redis:
+    image: redis:alpine
+  web:
+    build: .
+    ports:
+      - "80:3000"
+    depends_on:
+      - redis

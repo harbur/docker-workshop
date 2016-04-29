@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% include "./form.html" %}
+
+
+    {% if messages.length %}
+        <hr>
+        {% include "./messages.html" %}
+    {% endif %}
+{% endblock %}
