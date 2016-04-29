@@ -140,7 +140,7 @@ docker run -it docker-git git version
 
 * **build**: Build an image from a Dockerfile
 
-[code/docker-git/Dockerfile](code/docker-git/Dockerfile)
+[code/docker-git/Dockerfile](../../code/docker-git/Dockerfile)
 ```
 FROM alpine:3.3
 RUN apk update
@@ -170,7 +170,7 @@ On Mac:
 open "http://$(docker-machine ip default):4003"
 ```
 
-[code/docker-apache2/Dockerfile](code/docker-apache2/Dockerfile)
+[code/docker-apache2/Dockerfile](../../code/docker-apache2/Dockerfile)
 ```
 FROM alpine:3.3
 RUN apk --update add apache2 && rm -rf /var/cache/apk/*
@@ -203,7 +203,7 @@ open "http://$(docker-machine ip default):${$(docker port hello 80)##*:}"
 * **-P**: Publish all exposed ports to the host interfaces
 * **port**: Lookup the public-facing port that is NAT-ed to PRIVATE_PORT
 
-[code/hello-world/Dockerfile](code/hello-world/Dockerfile)
+[code/hello-world/Dockerfile](../../code/hello-world/Dockerfile)
 ```
 FROM nginx:1.8-alpine
 ADD site /usr/share/nginx/html
