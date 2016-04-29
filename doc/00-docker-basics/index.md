@@ -133,14 +133,14 @@ docker rmi docker-git
 Create a Git Container with Dockerfile:
 
 ```
-cd src/docker-git
+cd code/docker-git
 docker build -t docker-git .
 docker run -it docker-git git version
 ```
 
 * **build**: Build an image from a Dockerfile
 
-[src/docker-git/Dockerfile](src/docker-git/Dockerfile)
+[code/docker-git/Dockerfile](code/docker-git/Dockerfile)
 ```
 FROM alpine:3.3
 RUN apk update
@@ -170,7 +170,7 @@ On Mac:
 open "http://$(docker-machine ip default):4003"
 ```
 
-[src/docker-apache2/Dockerfile](src/docker-apache2/Dockerfile)
+[code/docker-apache2/Dockerfile](code/docker-apache2/Dockerfile)
 ```
 FROM alpine:3.3
 RUN apk --update add apache2 && rm -rf /var/cache/apk/*
@@ -185,7 +185,7 @@ CMD httpd -D FOREGROUND
 ### BUILD a Static website Image
 
 ```
-cd src/hello-world
+cd code/hello-world
 docker build -t hello-world .
 docker run -d --name hello -P hello-world
 ```
@@ -203,7 +203,7 @@ open "http://$(docker-machine ip default):${$(docker port hello 80)##*:}"
 * **-P**: Publish all exposed ports to the host interfaces
 * **port**: Lookup the public-facing port that is NAT-ed to PRIVATE_PORT
 
-[src/hello-world/Dockerfile](src/hello-world/Dockerfile)
+[code/hello-world/Dockerfile](code/hello-world/Dockerfile)
 ```
 FROM nginx:1.8-alpine
 ADD site /usr/share/nginx/html
