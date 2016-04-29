@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function (req, res) {
-    client.lrange('docker-node-messages', 0, -1, function (err, msgs) {
+    client.lrange('guestbook-node-messages', 0, -1, function (err, msgs) {
         if (err) {
             console.log(err);
         }
@@ -27,7 +27,7 @@ app.post('/post', function(req, res) {
         res.redirect('/');
     }
 
-    client.rpush('docker-node-messages', req.body.msg, function (err) {
+    client.rpush('guestbook-node-messages', req.body.msg, function (err) {
         if (err) {
             console.log(err);
         }

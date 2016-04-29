@@ -6,9 +6,9 @@ This section will show how to use Docker Compose to set up and run a simple Node
 
 ## Project's components
 
-We've already created a simple app in `code/docker-node` that uses node.js with express and redis.
+We've already created a simple app in `code/guestbook-node` that uses node.js with express and redis.
 
-1. Go to `code/docker-node` folder
+1. Go to `code/guestbook-node` folder
 
 2. Review `Dockerfile`:
 
