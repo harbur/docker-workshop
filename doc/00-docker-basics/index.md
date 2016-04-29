@@ -155,7 +155,7 @@ RUN apk add git
 Create an Apache Server Container with Dockerfile:
 
 ```
-cd docker-apache2
+cd code/docker-apache2
 docker build -t docker-apache2 .
 docker run -d -p 4003:80 docker-apache2
 ```
