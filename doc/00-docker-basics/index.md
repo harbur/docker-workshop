@@ -83,15 +83,17 @@ open "http://$(docker-machine ip default):4000"
 
 ### RUN a Container with a Volume
 
+NOTE: Make sure to be on `Docker Workshop` directory since we'll use volume mounts in the containers of directories of the repository.
+
 On Linux:
 ```
-docker run -d -p 4001:80 -v $(pwd)/src/hello-world/site/:/usr/share/nginx/html:ro nginx
+docker run -d -p 4001:80 -v $(pwd)/code/hello-world/site/:/usr/share/nginx/html:ro nginx
 google-chrome localhost:4001
 ```
 
 On Mac:
 ```
-docker run -d -p 4001:80 -v $(pwd)/src/hello-world/site/:/usr/share/nginx/html:ro nginx
+docker run -d -p 4001:80 -v $(pwd)/code/hello-world/site/:/usr/share/nginx/html:ro nginx
 open "http://$(docker-machine ip default):4001"
 ```
 
