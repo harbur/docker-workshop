@@ -74,7 +74,7 @@ google-chrome localhost:4000
 On Mac:
 ```
 docker run -d -p 4000:80 nginx
-open http://$(docker-machine ip default):4000
+open "http://$(docker-machine ip default):4000"
 ```
 
 * **-d**: Detached mode: Run container in the background, print new container id
@@ -92,7 +92,7 @@ google-chrome localhost:4001
 On Mac:
 ```
 docker run -d -p 4001:80 -v $(pwd)/src/hello-world/site/:/usr/share/nginx/html:ro nginx
-open http://$(docker-machine ip default):4001
+open "http://$(docker-machine ip default):4001"
 ```
 
 * **-v**: Bind mount a volume (e.g., from the host: -v /host:/container, from docker: -v /container)
@@ -165,7 +165,7 @@ google-chrome localhost:4003
 
 On Mac:
 ```
-open http://$(docker-machine ip default):4003
+open "http://$(docker-machine ip default):4003"
 ```
 
 [src/docker-apache2/Dockerfile](src/docker-apache2/Dockerfile)
@@ -195,7 +195,7 @@ google-chrome $(docker port hello 80)
 
 On Mac:
 ```
-open http://$(docker-machine ip default):${$(docker port hello 80)##*:}
+open "http://$(docker-machine ip default):${$(docker port hello 80)##*:}"
 ```
 
 * **-P**: Publish all exposed ports to the host interfaces
@@ -246,7 +246,7 @@ google-chrome $(docker port registry-hello 80)
 
 On Mac:
 ```
-open http://$(docker-machine ip default):${$(docker port registry-hello 80)##*:}
+open "http://$(docker-machine ip default):${$(docker port registry-hello 80)##*:}"
 ```
 
 * **pull**: Pull an image or a repository from a Docker registry server
