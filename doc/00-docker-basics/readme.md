@@ -261,6 +261,13 @@ open "http://$(docker-machine ip default):${$(docker port registry-hello 80)##*:
 
 * **pull**: Pull an image or a repository from a Docker registry server
 
+
+# Navigation 
+
+Previous | Next 
+:------- | ---: 
+← [Docker Workshop - Home](https://github.com/harbur/docker-workshop) | [Docker Workshop - Docker machine](../01-docker-machine) →
+
 # Credits
 
 This workshop was prepared by [harbur.io](http://harbur.io), under MIT License. Feel free to fork and improve.

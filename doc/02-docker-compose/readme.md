@@ -60,6 +60,12 @@ This instructs Compose to run the services defined in the `docker-compose.yml` i
 
 At this point, your Node app should be running at port `80` on your Docker host. If you are using a Docker Machine VM, you can use the `docker-machine ip MACHINE_NAME` to get the IP address.
 
+# Navigation 
+
+Previous | Next 
+:------- | ---: 
+← [Docker Workshop - Docker machine](../01-docker-machine) | [Docker Workshop - Home](https://github.com/harbur/docker-workshop) →
+
 # Credits
 
 This workshop was prepared by [harbur.io](http://harbur.io), under MIT License. Feel free to fork and improve.

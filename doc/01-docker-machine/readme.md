@@ -68,6 +68,11 @@ You can destroy the VM named `default`:
 docker-machine rm default
 ```
 
+# Navigation 
+
+Previous | Next 
+:------- | ---: 
+← [Docker Workshop - Docker Basics](../00-docker-basics) | [Docker Workshop - Docker Compose](../02-docker-compose) →
 
 # Credits
 
