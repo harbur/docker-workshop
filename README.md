@@ -1,6 +1,6 @@
 # [![harbur.io](https://harbur.io/logo/Color/Logo/Harbur-40x40.png)](http://harbur.io) Docker Workshop
 
-The Workshop is separated in three sections
+The Workshop is separated in three sections:
 
 * [Docker Basics](doc/00-docker-basics)
 * [Docker Machine](doc/01-docker-machine)
@@ -8,7 +8,7 @@ The Workshop is separated in three sections
 
 ### Preparations:
 
-* Install Docker
+* [Install Docker](https://docs.docker.com/engine/installation/)
 * Clone this repo: `git clone https://github.com/harbur/docker-workshop` (Some code examples require files located here)
 * Warm-up the images:
 
