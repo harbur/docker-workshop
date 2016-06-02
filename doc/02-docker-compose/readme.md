@@ -1,4 +1,4 @@
-# [![harbur.io](https://en.gravatar.com/userimage/10968596/06879c44248462a1bac025dd999fe704.png?size=64)](http://harbur.io) Docker Workshop - Docker Compose
+# [![harbur.io](https://harbur.io/logo/Color/Logo/Harbur-70x70.png)](http://harbur.io) Docker Workshop - Docker Compose
 
 
 This section will show how to use Docker Compose to set up and run a simple Node/Redis app. Before starting, you'll need to have [Docker Compose installed](https://docs.docker.com/compose/install/).

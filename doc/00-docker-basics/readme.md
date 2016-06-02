@@ -1,4 +1,4 @@
-# [![harbur.io](https://en.gravatar.com/userimage/10968596/06879c44248462a1bac025dd999fe704.png?size=64)](http://harbur.io) Docker Workshop - Docker Basics
+# [![harbur.io](https://harbur.io/logo/Color/Logo/Harbur-70x70.png)](http://harbur.io) Docker Workshop - Docker Basics
 
 This section is separated in:
 
