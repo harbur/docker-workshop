@@ -1,4 +1,4 @@
-# [![harbur.io](https://en.gravatar.com/userimage/10968596/06879c44248462a1bac025dd999fe704.png?size=64)](http://harbur.io) Docker Workshop - Docker Basics
+# [![harbur.io](https://harbur.io/logo/Color/Logo/Harbur-40x40.png)](http://harbur.io) Docker Workshop - Docker Basics
 
 This section is separated in:
 
@@ -101,11 +101,11 @@ open "http://$(docker-machine ip default):4001"
 * The volume is **linked** inside the container. Any external changes are visible directly inside the container.
 * This example breaks the immutability of the container, good for debuging, not recommended for production (Volumes should be used for data, not code)
 
-## Workshop 1 (10 mins)
+## Exercise 1 (10 mins)
 
 * Build a static website
 * Run it on your machine
-* Share your (non-localhost) url on Chat room [![Gitter chat](https://badges.gitter.im/harbur/docker-workshop.png)](https://gitter.im/harbur/docker-workshop)
+* Share your (non-localhost) url on [Slack](https://dockerbcn.herokuapp.com)
 
 # Dockerfile Basics
 
@@ -211,11 +211,11 @@ ADD site /usr/share/nginx/html
 
 * The **ADD** instruction will copy new files from <src> and add them to the container's filesystem at path <dest>
 
-## Workshop 2 (10 mins)
+## Exercise 2 (10 mins)
 
 * Build your website with Dockerfile
 * Run an instance
-* Share your (non-localhost) url on Chat room [![Gitter chat](https://badges.gitter.im/harbur/docker-workshop.png)](https://gitter.im/harbur/docker-workshop)
+* Share your (non-localhost) url on [Slack](https://dockerbcn.herokuapp.com)
 
 ### PUSH Image to a Registry
 
@@ -236,11 +236,11 @@ docker push $REGISTRY/$(whoami)/hello-world
 * **tag**: Tag an image into a repository
 * **push**: Push an image or a repository to a Docker registry server
 
-## Workshop 3 (10 mins)
+## Exercise 3 (10 mins)
 
 * Push your website to the local Registry (use your github username)
 * Push your website image
-* Share your image name on Chat room [![Gitter chat](https://badges.gitter.im/harbur/docker-workshop.png)](https://gitter.im/harbur/docker-workshop)
+* Share your image name on [Slack](https://dockerbcn.herokuapp.com)
 
 ### PULL Image from a Repository
 
@@ -260,6 +260,13 @@ open "http://$(docker-machine ip default):${$(docker port registry-hello 80)##*:
 ```
 
 * **pull**: Pull an image or a repository from a Docker registry server
+
+
+# Navigation 
+
+Previous | Next 
+:------- | ---: 
+← [Docker Workshop - Home](https://github.com/harbur/docker-workshop) | [Docker Workshop - Docker machine](../01-docker-machine) →
 
 # Credits
 

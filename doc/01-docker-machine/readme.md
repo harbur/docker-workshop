@@ -1,4 +1,4 @@
-# [![harbur.io](https://en.gravatar.com/userimage/10968596/06879c44248462a1bac025dd999fe704.png?size=64)](http://harbur.io) Docker Workshop - Docker machine
+# [![harbur.io](https://harbur.io/logo/Color/Logo/Harbur-40x40.png)](http://harbur.io) Docker Workshop - Docker machine
 
 In this section we'll introduce `docker-machine`.
 
@@ -68,4 +68,12 @@ You can destroy the VM named `default`:
 docker-machine rm default
 ```
 
+# Navigation 
 
+Previous | Next 
+:------- | ---: 
+← [Docker Workshop - Docker Basics](../00-docker-basics) | [Docker Workshop - Docker Compose](../02-docker-compose) →
+
+# Credits
+
+This workshop was prepared by [harbur.io](http://harbur.io), under MIT License. Feel free to fork and improve.
