@@ -13,8 +13,10 @@ The Workshop is separated in three sections:
 * Warm-up the images:
 
 ```
-docker pull alpine
-docker pull nginx
+docker pull alpine:3.3
+docker pull nginx:1.8-alpine
+docker pull redis:alpine
+docker pull mhart/alpine-node:latest
 ```
 
 ### Assumptions:
