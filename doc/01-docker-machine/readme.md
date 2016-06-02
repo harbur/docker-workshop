@@ -69,3 +69,6 @@ docker-machine rm default
 ```
 
 
+# Credits
+
+This workshop was prepared by [harbur.io](http://harbur.io), under MIT License. Feel free to fork and improve.

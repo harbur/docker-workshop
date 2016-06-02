@@ -59,3 +59,7 @@ docker-compose up
 This instructs Compose to run the services defined in the `docker-compose.yml` in containers, using the `redis` image and the `web` service's image and configuration. Because the `web` image doesn't exist yet, Compose builds it from the current directory, as specified by the `build: .` line in `docker-compose.yml`.
 
 At this point, your Node app should be running at port `80` on your Docker host. If you are using a Docker Machine VM, you can use the `docker-machine ip MACHINE_NAME` to get the IP address.
+
+# Credits
+
+This workshop was prepared by [harbur.io](http://harbur.io), under MIT License. Feel free to fork and improve.

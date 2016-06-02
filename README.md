@@ -30,3 +30,6 @@ Join [Docker Barcelona Slack](https://dockerbcn.herokuapp.com)!
 
 We've wrote a page with some useful docker commands: [Harbur's docker-cheat-sheet](https://github.com/harbur/docker-cheat-sheet).
 
+# Credits
+
+This workshop was prepared by [harbur.io](http://harbur.io), under MIT License. Feel free to fork and improve.
