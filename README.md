@@ -1,4 +1,4 @@
-# [![harbur.io](https://harbur.io/logo/Color/Logo/Harbur-70x70.png)](http://harbur.io) Docker Workshop [![Gitter chat](https://badges.gitter.im/harbur/docker-workshop.png)](https://gitter.im/harbur/docker-workshop)
+# [![harbur.io](https://harbur.io/logo/Color/Logo/Harbur-70x70.png)](http://harbur.io) Docker Workshop
 
 The Workshop is separated in three sections
 
@@ -20,6 +20,9 @@ docker pull nginx
 ### Assumptions:
 
 * During workshop the following ports are used: `80` and the range `4000-4010`. If they are not available on your machine, adjust the CLI commands accordingly.
+
+### Chat
+Join [Docker Barcelona Slack](https://dockerbcn.herokuapp.com)! ![Members online on Docker Barcelona Slack](https://dockerbcn.herokuapp.com/badge.svg)
 
 ### Docker Cheat Sheet:
 

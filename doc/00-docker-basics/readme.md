@@ -105,7 +105,7 @@ open "http://$(docker-machine ip default):4001"
 
 * Build a static website
 * Run it on your machine
-* Share your (non-localhost) url on Chat room [![Gitter chat](https://badges.gitter.im/harbur/docker-workshop.png)](https://gitter.im/harbur/docker-workshop)
+* Share your (non-localhost) url on [Slack](https://dockerbcn.herokuapp.com)
 
 # Dockerfile Basics
 
@@ -215,7 +215,7 @@ ADD site /usr/share/nginx/html
 
 * Build your website with Dockerfile
 * Run an instance
-* Share your (non-localhost) url on Chat room [![Gitter chat](https://badges.gitter.im/harbur/docker-workshop.png)](https://gitter.im/harbur/docker-workshop)
+* Share your (non-localhost) url on [Slack](https://dockerbcn.herokuapp.com)
 
 ### PUSH Image to a Registry
 
@@ -240,7 +240,7 @@ docker push $REGISTRY/$(whoami)/hello-world
 
 * Push your website to the local Registry (use your github username)
 * Push your website image
-* Share your image name on Chat room [![Gitter chat](https://badges.gitter.im/harbur/docker-workshop.png)](https://gitter.im/harbur/docker-workshop)
+* Share your image name on [Slack](https://dockerbcn.herokuapp.com)
 
 ### PULL Image from a Repository
 
