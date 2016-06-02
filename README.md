@@ -22,7 +22,9 @@ docker pull nginx
 * During workshop the following ports are used: `80` and the range `4000-4010`. If they are not available on your machine, adjust the CLI commands accordingly.
 
 ### Chat
-Join [Docker Barcelona Slack](https://dockerbcn.herokuapp.com)! ![Members online on Docker Barcelona Slack](https://dockerbcn.herokuapp.com/badge.svg)
+![Members online on Docker Barcelona Slack](https://dockerbcn.herokuapp.com/badge.svg)
+
+Join [Docker Barcelona Slack](https://dockerbcn.herokuapp.com)! 
 
 ### Docker Cheat Sheet:
 
