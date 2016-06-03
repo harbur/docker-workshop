@@ -1,7 +1,37 @@
 # [![harbur.io](https://harbur.io/logo/Color/Logo/Harbur-40x40.png)](http://harbur.io) Docker Workshop - Docker Compose
 
 
-This section will show how to use Docker Compose to set up and run a simple Node/Redis app. Before starting, you'll need to have [Docker Compose installed](https://docs.docker.com/compose/install/).
+This section will show how to use Docker Compose with some small exercises and with a simple Node/Redis app. Before starting, you'll need to have [Docker Compose installed](https://docs.docker.com/compose/install/).
+
+# Docker-compose
+
+Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a Compose file to configure your application’s services. Then, using a single command, you create and start all the services from your configuration. To learn more about all the features of Compose see [the list of features](https://docs.docker.com/compose/overview/#features).
+
+Using Compose is basically a three-step process:
+
+1.Define your app’s environment with a `Dockerfile` so it can be reproduced anywhere.
+1.Define the services that make up your app in `docker-compose.yml` so they can be run together in an isolated environment.
+1.Lastly, run `docker-compose up` and Compose will start and run your entire app.
+
+
+## Commands
+
+Check the available commands of Docker Compose. Type in your terminal:
+
+```
+docker-compose
+```
+
+* Whenever you don't remember a command, just type docker-compose
+* For more info, type `docker-compose help COMMAND` (e.g. `docker-compose help build`)
+
+## docker-compose.yml
+
+The `docker-compose.yml` file is a [YAML](http://yaml.org/) file defining [services](https://docs.docker.com/compose/compose-file/#service-configuration-reference), [networks](https://docs.docker.com/compose/compose-file/#network-configuration-reference) and [volumes](https://docs.docker.com/compose/compose-file/#volume-configuration-reference). The default path for a Compose file is `./docker-compose.yml`.
+
+A service definition contains configuration which will be applied to each container started for that service, much like passing command-line parameters to `docker run`. Likewise, network and volume definitions are analogous to `docker network create` and `docker volume create`.
+
+Options specified in the `Dockerfile` (e.g., `CMD`, `EXPOSE`, `VOLUME`, `ENV`) are respected by default - you don’t need to specify them again in `docker-compose.yml`.
 
 
 ## Project's components
