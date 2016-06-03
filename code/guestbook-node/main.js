@@ -41,7 +41,7 @@ client.on("error", function (err) {
 
 process.on("SIGTERM", function () {
     client.quit();
-    server.close(function () {
+    app.close(function () {
         process.exit(0);
     });
 });
