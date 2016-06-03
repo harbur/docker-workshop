@@ -120,7 +120,7 @@ If we want, we can run the containers in background with `-d` flag:
 docker-compose up -d
 ```
 
-At this point, your Node app should be running at port `8080` on your Docker host. If you are using a Docker Machine VM, you can use the `docker-machine ip MACHINE_NAME` to get the IP address.
+At this point, your Node app should be running at port `8088` on your Docker host. If you are using a Docker Machine VM, you can use the `docker-machine ip MACHINE_NAME` to get the IP address.
 
 ### Logs
 
@@ -174,6 +174,25 @@ If we want to stop and remove them:
 docker-compose down
 ```
 
+## Exercise 1 (10 min)
+
+Update the title of `guestbook` app adding your name.
+
+The goal of this exercise is:
+- Understand the development process
+- Understand how to update the code and deploy it
+
+
+## Exercise 2 (15 min)
+
+Add a new service like `web` in the `docker-compose.yml` to have another application that connects to the existing `redis` and expose a different port.
+
+The goal of this exercise is:
+
+- Understand how `docker-compose.yml` works
+- Understand how to add a new service
+- Understand how to expose ports
+- Be able to run at the same time the two `web` containers
 
 # Navigation 
 
