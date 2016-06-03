@@ -21,7 +21,7 @@ docker pull mhart/alpine-node:latest
 
 ### Assumptions:
 
-* During workshop the following ports are used: `80` and the range `4000-4010`. If they are not available on your machine, adjust the CLI commands accordingly.
+* During workshop the following ports are used: `80`, `8088` and the range `4000-4010`. If they are not available on your machine, adjust the CLI commands accordingly.
 
 ### Chat
 ![Members online on Docker Barcelona Slack](https://dockerbcn.herokuapp.com/badge.svg)

@@ -80,15 +80,100 @@ In this case, we defined two services, `redis` that uses `redis:alpine` and `web
 
 ## Run the app
 
+### Build the images
+
+With docker-compose we can build all the images at once running:
+```
+docker-compose build
+```
+
+The `docker-compose build` reads `docker-compose.yml` and build all the services defined in there.
+
+### Run a command against a service
+We can run a one-time command against a service. For example, the following command starts the `web` service and runs `sh` as its command.
+```
+docker-compose run web sh
+```
+
+Commands you use with `run` start in new containers with the same configuration as defined by the service's configuration. This means the container has the same volumes, links, as defined in the configuration file. There two differences though.
+
+First, the command passed by `run` overrides the command defined in the service configuration. For example, if the `web` service configuration is started with `node`, then `docker-compose run web sh` overrides it with `sh`.
+
+The second difference is the `docker-compose run` command does not create any of the ports specified in the service configuration. This prevents the port collisions with already open ports.
+
+### Start services
+
+We can run `docker-compose up` that builds, (re)creates, starts, and attaches to containers for a service. Unless they are already running, this command also starts any linked services.
+
 Type in your terminal: 
 
 ```
 docker-compose up
 ```
 
-This instructs Compose to run the services defined in the `docker-compose.yml` in containers, using the `redis` image and the `web` service's image and configuration. Because the `web` image doesn't exist yet, Compose builds it from the current directory, as specified by the `build: .` line in `docker-compose.yml`.
+This instructs Compose to run the services defined in the `docker-compose.yml` in containers, using the `redis` image and the `web` service's image and configuration. 
 
-At this point, your Node app should be running at port `80` on your Docker host. If you are using a Docker Machine VM, you can use the `docker-machine ip MACHINE_NAME` to get the IP address.
+The docker-compose up command aggregates the output of each container. When the command exits, all containers are stopped.
+
+If we want, we can run the containers in background with `-d` flag:
+```
+docker-compose up -d
+```
+
+At this point, your Node app should be running at port `8080` on your Docker host. If you are using a Docker Machine VM, you can use the `docker-machine ip MACHINE_NAME` to get the IP address.
+
+### Logs
+
+We can see the log output from services running:
+```
+docker-compose logs
+```
+
+If we want to review the logs of a specific service, e.g. `web`:
+```
+docker-compose logs web
+```
+
+### List containers
+
+We can run `ps` like in `docker ps` to list containers and their status:
+```
+docker-compose ps
+```
+
+### Stop containers
+
+```
+docker-compose stop 
+```
+
+Stops running containers without removing them. They can be started again with `docker-compose start`.
+
+If we want we can stop only one container:
+```
+docker-compose stop web
+```
+
+### Start container
+
+Starts existing containers for a service, e.g. `web`:
+```
+docker-compose start web
+```
+
+### Remove containers
+```
+docker-compose rm
+```
+
+The previous command removes __stopped__ service containers. 
+
+If we want to stop and remove them:
+
+```
+docker-compose down
+```
+
 
 # Navigation 
 
