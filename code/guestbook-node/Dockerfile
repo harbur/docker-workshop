@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:latest
+FROM node:7.7.0-alpine
 RUN mkdir /code
 WORKDIR /code
 ADD package.json /code/

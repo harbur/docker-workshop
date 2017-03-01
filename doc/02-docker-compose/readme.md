@@ -43,7 +43,7 @@ We've already created a simple app in `code/guestbook-node` that uses node.js wi
 2. Review `Dockerfile`:
 
 ```
-FROM mhart/alpine-node:latest
+FROM node:7.7.0-alpine
 RUN mkdir /code
 WORKDIR /code
 ADD package.json /code/
@@ -52,7 +52,7 @@ ADD . /code/
 CMD ["node", "main.js"]
 ```
 
-We use the base image of `mhart/alpine-node`. Although it's not the official nodejs image, we preferred to use it because it's based in Alpine, a light linux distribution. 
+We use the base image of `node:7.7.0-alpine`. It is the official image in Alpine, a minimal OS.
 
 The `Dockerfile` then creates the directory where our code will be stored, `/code`, and it copies the `package.json` so it can install the node dependencies.
 
